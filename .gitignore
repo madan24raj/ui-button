@@ -1,0 +1,37 @@
+# Node.js / npm
+node_modules/
+npm-debug.log
+.npmrc
+
+# Build output
+/dist/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.iml
+
+# Storybook
+.storybook/
+
+# Testing
+/coverage/
+/.nyc_output/
+
+# Compiled output
+/lib/
+
+# Logs
+logs/
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+
+# Other temporary or generated files
+*.swp
+*.swo
