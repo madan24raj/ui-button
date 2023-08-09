@@ -26,7 +26,7 @@ export default [
       typescript({ tsconfig: "./tsconfig.json" }),
       terser(),
     ],
-    external: ["react", "react-dom", "styled-components"], 
+    external: ["react", "react-dom", "styled-components","storybook","stories"], 
   },
   {
     input: "dist/esm/types/index.d.ts",

@@ -24,5 +24,9 @@ export interface ConfirmTooltipProps {
 
 export interface ProgressBarProps {
     progress: number;
-    isLoading?:boolean;
+    show?:boolean;
+  }
+
+  export interface LoaderSVGProps {
+    size?: "small" | "medium" | "large";
   }

@@ -1,7 +1,16 @@
 import React,{useRef} from 'react';
-import styled from 'styled-components';
+import styled,{keyframes} from 'styled-components';
 import { ProgressBarProps } from './Button.type';
 
+
+
+
+const PercentageText = styled.span`
+  font-size:15px;
+  padding:.5rem;
+  text-align:center;
+  position:absolute;
+`;
 
 const ProgressContainer = styled.div`
   width: 100%;
@@ -9,25 +18,20 @@ const ProgressContainer = styled.div`
   background-color: #ddd;
   border-radius: 4px;
   overflow: hidden;
-  text-align:center;
-`;
-
-const PercentageText = styled.span`
-  font-size:10px;
-  padding:.25rem;
+  position:relative;
 `;
 
 const ProgressBarFill = styled.div<{ progress: number }>`
   width: ${props => props.progress}%;
   height: 100%;
-  
-  background-color: #3498db;
-  transition: width 3s ease-in-out;
+  background-color: #015501;
+  transition: width 0.2s linear;
+  text-align:center;
 `;
 
 const ProgressBar: React.FC<ProgressBarProps> = ({ progress }) => {
   const progressBarRef = useRef<HTMLDivElement>(null);
-  return (
+  return ( 
     <ProgressContainer>
       <ProgressBarFill progress={progress}>
           <PercentageText>{`${progress}%`}</PercentageText>

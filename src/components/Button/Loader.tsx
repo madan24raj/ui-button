@@ -11,8 +11,8 @@ margin: auto;
 border: 2px solid #EAF0F6;
 border-radius: 50%;
 border-top: 2px solid #FF7A59;
-width: 15px;
-height: 15px;
+width: 30px;
+height: 30px;
 animation: ${spinAnimation} 1s ease infinite;
   }
 

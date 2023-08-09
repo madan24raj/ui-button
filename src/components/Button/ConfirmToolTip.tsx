@@ -1,31 +1,40 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import {ConfirmTooltipProps} from'./Button.type';
+
+const zoom = keyframes`
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+`;
 
 const ButtonWrapper = styled.div`
 position: relative;
 display: flex;
-flex-direction: column;
+flex-direction: rows;
 justify-content: center;
 align-items: center;
 cursor: pointer;
-flex-direction: revert;
+gap:2.5rem;
  margin: 1rem;
+ animation: ${zoom} .8s  cubic-bezier(0.34, 1.56, 0.64, 1);
+
 
   button {
     padding: 6px 12px;
-    background-color: #3498db;
-    color: #fff;
+    background-color: #6fcf75;
+    color: #075315;
     border: none;
-    border-radius: 4px;
+    border-radius: 10px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: 700;
 
     &:hover {
-      background-color: #2980b9;
+      background-color: #a4d9a7;
     }
   }
 `;
+
 
 
 const TooltipWrapper = styled.div<{ show: boolean }>`
@@ -39,8 +48,11 @@ width: 100%;
 height: 100%;
 flex-direction: column;
 visibility: ${props => (props.show ? 'visible' : 'hidden')};
+color:#fff;
 background-color: rgba(0, 0, 0, 0.5);
 z-index:1;
+    font-size:20px;
+
 `;
 
 const TooltipContainer = styled.div`
@@ -49,6 +61,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+
 cursor: pointer;
 
   }
@@ -85,6 +98,7 @@ const ConfirmTooltip: React.FC<ConfirmTooltipProps> = ({ text, onConfirm, onCanc
     {showTooltip && (<TooltipWrapper show={showTooltip} ref={tooltipRef}>
       {text}
       <ButtonWrapper>
+      
         <button onClick={handleConfirm} disabled={isLoading}>
           {isLoading ? 'Loading...' : 'Confirm'}
         </button>
